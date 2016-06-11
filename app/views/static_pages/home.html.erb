@@ -3,7 +3,7 @@
   <p>This page is a work in progress</p>
   <% if user_signed_in? %>
     <h1>User is logged in!</h1>
-    <h1>Connect to instagram!</h1>
+    <%= link_to "Connect to Twitter", twitter_connect_path %>
   <% else %>
     <h1>User is logged out!</h1>
   <% end %>

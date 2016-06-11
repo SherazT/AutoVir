@@ -1,0 +1,2 @@
+module UserAcquisitionsHelper
+end

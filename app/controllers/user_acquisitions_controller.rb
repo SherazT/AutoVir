@@ -1,0 +1,2 @@
+class UserAcquisitionsController < ApplicationController
+end
