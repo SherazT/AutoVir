@@ -1,13 +1,13 @@
 <div class="text-center">
+  <% if user_signed_in? %>
   <%= image_tag 'logo.svg', class:"logo-ting" %>
   <%= image_tag 'plus.png', class:"plus" %>
   <%= image_tag 'twitter.svg', class:"twitter-logo" %>
   <br>
   <br>
   <br>
-  <% if user_signed_in? %>
-    <button class="myButton">
-    Connect to Twitter
-    </button>
+   <%= button_to 'Connect to Twitter',dashboard_path, class: 'myButton' %>
+  <% else %>
+    <%= image_tag 'logo.svg', class:"logo-org" %>
   <% end %>
 </div>

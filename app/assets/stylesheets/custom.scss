@@ -5,15 +5,49 @@
   max-width: 200px;
 }
 
+.button{
+  height:75px;
+  position:fixed;
+  right: 70px;
+  width:75px;
+}
+
+.button-start{
+  height:75px;
+  position:fixed;
+  right: 160px;
+  width:75px; 
+}
+
+.divider{
+  position:absolute;
+  left:33.3%;
+  top:0%;
+  bottom:0%;
+  border-left:5px solid black;
+}
+
 .plus{
   height: 25px;
   width: 25px;
+}
+
+.dashboard-word {
+  font-family: HelveticaNeue;
+  font-weight: lighter;
+  position:fixed;
+  left:70px;
 }
 
 .logo-ting{
   height: 150px;
   width: 150px;
   padding-right: 20px;
+}
+
+.logo-org{
+  height: 400px;
+  width: 400px;
 }
 
 .twitter-logo{
