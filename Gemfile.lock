@@ -75,6 +75,7 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashie (3.4.4)
     http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -110,7 +111,9 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    oauth (0.5.1)
+    omniauth (1.3.1)
+      hashie (>= 1.2, < 4)
+      rack (>= 1.0, < 3)
     orm_adapter (0.5.0)
     pkg-config (1.1.7)
     rack (1.6.4)
@@ -145,6 +148,7 @@ GEM
       json (~> 1.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rinruby (2.0.3)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -207,8 +211,9 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
-  oauth
+  omniauth
   rails (= 4.2.6)
+  rinruby
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
