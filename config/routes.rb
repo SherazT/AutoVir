@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'terms' => 'static_pages#terms'
   post 'dashboard' => 'static_pages#dashboard'
   get 'dashboard' => 'static_pages#dashboard'
-
   # twitter
   post 'twitter_follow' => 'twitter_follows#follow'
 end

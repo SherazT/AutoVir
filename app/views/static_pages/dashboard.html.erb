@@ -9,11 +9,16 @@
 <br>
 <br>
 <hr>
-<h4>Followers Following</h4>
 
 <%= form_tag(twitter_follow_path, method: "post") do %>
   <%= label_tag(:hashtag, "hashtag:") %>
   <%= text_field_tag(:hashtag) %>
   <%= submit_tag("Follow") %>
 <% end %>
+
+</div>
+<div class="text-center">
+<iframe width="370" height="400" frameborder="0" scrolling="no" src="https://plot.ly/~mccurdys/5.embed"></iframe>
+<iframe width="370" height="400" frameborder="0" scrolling="no" src="https://plot.ly/~mccurdys/3.embed"></iframe>
+<iframe width="370" height="400" frameborder="0" scrolling="no" src="https://plot.ly/~mccurdys/7.embed"></iframe>
 </div>
