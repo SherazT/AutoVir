@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'dashboard' => 'static_pages#dashboard'
   # twitter
   post 'twitter_follow' => 'twitter_follows#follow'
+  post 'twitter_summary' => 'twitter_follows#post_tweet'
 end
