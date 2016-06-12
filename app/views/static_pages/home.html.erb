@@ -1,9 +1,13 @@
 <div class="text-center">
-  <% if user_signed_in? %>
-    <%= link_to twitter_connect_path, class: "btn btn-primary margin-bottom twitter" do %>
-      <h3>Connect to Twitter</h3>
-    <% end %>
-  <% end %>
+  <%= image_tag 'logo.svg', class:"logo-ting" %>
+  <%= image_tag 'plus.png', class:"plus" %>
+  <%= image_tag 'twitter.svg', class:"twitter-logo" %>
   <br>
-  <%= image_tag 'logo.svg', class:"home-logo" %>
+  <br>
+  <br>
+  <% if user_signed_in? %>
+    <button class="myButton">
+    Connect to Twitter
+    </button>
+  <% end %>
 </div>
