@@ -1,13 +1,8 @@
 
-
 args <- commandArgs(trailingOnly = TRUE)
-
 
 input <- args[1]
 client_username <- args[2]
-
-#input <- "#foodie"
-#client_username <- "seanmccrdy"
 
 library(twitteR)
 library(stringr)
@@ -58,15 +53,44 @@ final<-final[!duplicated(final),]
 final$statusSource<-gsub("twitter.com/#!/download/","",gsub("twitter.com/download/","",gsub("\"","",gsub("href=\"https://","",gsub("href=\"http://","",str_split_fixed(final$statusSource," ",3)[,2])))))
 
 final<-final[!duplicated(final[,1:2]),]
+final["pull_date"]<-date()
 
+self<-getUser(client_username)
+self_followers<-data.frame("type"="followers",t(sapply(self$getFollowers(), function(x) c(x$screenName, x$location, x$statusesCount))))
+self_friends<-data.frame("type"="following",t(sapply(self$getFriends(), function(x) c(x$screenName, x$location, x$statusesCount))))
 
-self_followers<-data.frame("type"="followers",t(sapply(getUser(client_username)$getFollowers(), function(x) c(x$screenName, x$location, x$statusesCount))))
+self_summary<-data.frame(self$screenName,
+self$statusesCount,
+self$followersCount,
+self$favoritesCount,
+self$friendsCount) 
+names(self_summary) <-c("screenName","statusesCount","followersCount","favoritesCount","friendsCount")
 
-self_friends<-data.frame("type"="following",t(sapply(getUser(client_username)$getFriends(), function(x) c(x$screenName, x$location, x$statusesCount))))
+self_summary["reciprocal"] = length(base::intersect(self_followers$X1,self_friends$X1))
+self_summary["disciples"] = length(base::setdiff(self_followers$X1,self_friends$X1))
+self_summary["messiahs"] = length(base::setdiff(self_friends$X1,self_followers$X1))
+self_summary <-self_summary %>% mutate(ff_ratio = followersCount/friendsCount)
+self_summary["pull_date"]<-date()
 
 final["following_client"]<-ifelse(final$screenName %in% self_followers$X1,1,0)
 
-write.table(final[abs(1-final$ff_ratio)<0.2,"screenName"],"recommended_users.csv",row.names=FALSE,col.names=FALSE,sep=",")
+self_followers_info<-self$getFollowers()
+self_followers_info_final<-{}
+for (i in 1:nrow(self_followers))
+{
+self_followers_info_final[[i]]<-data.frame(self_followers_info[[i]][["screenName"]],
+self_followers_info[[i]][["description"]],
+self_followers_info[[i]][["location"]],
+self_followers_info[[i]][["statusesCount"]],
+self_followers_info[[i]][["followersCount"]],
+self_followers_info[[i]][["favoritesCount"]],
+self_followers_info[[i]][["friendsCount"]],date())
+}
+self_followers_info_final<-do.call("rbind",self_followers_info_final)
+names(self_followers_info_final) <-c("screenName","description","location","statusesCount","followersCount","favoritesCount","friendsCount","pull_date")
 
 
-write.csv(final,"final_scrape.csv")
+write.table(final[abs(1-final$ff_ratio)<0.2,"screenName"],args[3],row.names=FALSE,col.names=FALSE,sep=",")
+write.csv(final,args[4],row.names=FALSE)
+write.csv(self_summary,args[5],row.names=FALSE)
+write.csv(self_followers_info_final,args[6],row.names=FALSE)

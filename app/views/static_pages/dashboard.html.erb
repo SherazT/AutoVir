@@ -10,4 +10,10 @@
 <br>
 <hr>
 <h4>Followers Following</h4>
+
+<%= form_tag(twitter_follow_path, method: "post") do %>
+  <%= label_tag(:hashtag, "hashtag:") %>
+  <%= text_field_tag(:hashtag) %>
+  <%= submit_tag("Follow") %>
+<% end %>
 </div>
