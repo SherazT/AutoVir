@@ -1,24 +1,32 @@
 <div class="text-center">
-<h1 class="dashboard-word">Dashboard</h1>
+<h1 class="text-left remove-margin">Dashboard</h1>
 </div>
-<div class="text-right">
+
+<div class="col-md-6 col-lg-6">
+  <%= form_tag(twitter_follow_path, method: "post") do %>
+    <%= label_tag(:hashtag, "Follow users", class: "btn-block") %>
+    <%= text_field_tag :hashtag, nil,placeholder: "#hashtag", class: 'form-control max-form btn-inline' %>
+    <%= button_tag type: 'submit', class: "btn btn-info btn-inline" do %>
+      Follow
+    <% end %>
+  <% end %>
+  
+  <%= form_tag(twitter_summary_path, method: "post") do %>
+    <%= label_tag(:link, "Summarize and tweet webpage", class: "btn-block") %>
+    <%= text_field_tag :link, nil, placeholder: "url", class: 'form-control max-form btn-inline' %>
+    <%= button_tag type: 'submit', class: "btn btn-info btn-inline" do %>
+      Summarize
+    <% end %>
+  <% end %>
+
+  <%= form_tag(twitter_retweet_path, method: "post") do %>
+    <%= label_tag(:retweet, "Summarize and tweet webpage", class: "btn-block") %>
+    <%= text_field_tag :retweet, nil, placeholder: "#hashtag", class: 'form-control max-form btn-inline' %>
+    <%= button_tag type: 'submit', class: "btn btn-info btn-inline" do %>
+      Retweet
+    <% end %>
+  <% end %>
 </div>
-<br>
-<br>
-<br>
-<hr>
-
-<%= form_tag(twitter_follow_path, method: "post") do %>
-  <%= label_tag(:hashtag, "hashtag:") %>
-  <%= text_field_tag(:hashtag) %>
-  <%= submit_tag("Follow") %>
-<% end %>
-
-<%= form_tag(twitter_summary_path, method: "post") do %>
-  <%= label_tag(:link, "link:") %>
-  <%= text_field_tag(:link) %>
-  <%= submit_tag("Summarize") %>
-<% end %>
 
 </div>
 <div class="text-center">
