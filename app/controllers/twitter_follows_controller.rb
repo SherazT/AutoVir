@@ -21,7 +21,7 @@ class TwitterFollowsController < ApplicationController
     rescue Twitter::Error::TooManyRequests => error
       flash[:error] = "Twitter rate limit"
     end
-    flash[:success] = "Succesfully followed companies!"
+    flash[:success] = "Succesfully followed Twitter accounts!"
     redirect_to dashboard_url
   end
 
@@ -35,7 +35,6 @@ class TwitterFollowsController < ApplicationController
     r = ConceptExtraction.new(params[:link]).analyze
     tweet = r["positive"][0..2].map { |x| x["original_text"] }.join("...") + " "
     tweet += r["positive"][0..2].map { |x| "#" + x["sentiment"].tr(" ", "") }.join(" ")
-    byebug
     client.update(tweet[0..139])
     flash[:success] = "The tweet has been succesfully posted: #{tweet}"
     redirect_to dashboard_url
