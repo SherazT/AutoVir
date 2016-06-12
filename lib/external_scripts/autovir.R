@@ -27,7 +27,7 @@ token$cache()
 #records rate limit for different 
 rate.limit<-getCurRateLimitInfo(c("lists"))
 
-scrape<-searchTwitter(input,n=500,lang="en")
+scrape<-searchTwitter(input,n=200,lang="en")
 tweet_summary <- twListToDF(scrape)
 
 
