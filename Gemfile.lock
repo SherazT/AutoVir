@@ -76,6 +76,8 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.4)
+    havenondemand (1.1.0)
+      unirest
     http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -85,6 +87,9 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -106,6 +111,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     naught (1.1.0)
     nokogiri (1.6.8)
@@ -154,6 +160,8 @@ GEM
       json (~> 1.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -197,6 +205,10 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    unirest (1.0.8)
+      addressable
+      json
+      rest-client
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -214,6 +226,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   figaro
+  havenondemand
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   omniauth
@@ -228,6 +242,9 @@ DEPENDENCIES
   twitter
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.5

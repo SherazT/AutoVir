@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
@@ -35,6 +35,8 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'twitter'
 gem 'omniauth'
+gem 'havenondemand'
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
