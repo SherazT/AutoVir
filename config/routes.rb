@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'help' => 'static_pages#help'
   get 'contact' => 'static_pages#contact'
   get 'terms' => 'static_pages#terms'
+  post 'dashboard' =>'static_pages#dashboard'
+  get 'dashboard' =>'static_pages#dashboard'
 
   # twitter
   get 'twitter-connect' => "twitter_connections#create"
