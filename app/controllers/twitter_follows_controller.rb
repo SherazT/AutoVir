@@ -19,7 +19,6 @@ class TwitterFollowsController < ApplicationController
         client.follow(row[0])
       end
     rescue Twitter::Error::TooManyRequests => error
-      byebug
       flash[:error] = "Twitter rate limit"
       redirect_to dashboard_url
     end
