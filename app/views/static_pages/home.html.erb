@@ -1,10 +1,9 @@
 <div class="text-center">
-  <h1>Welcome to Autovir!</h1>
-  <p>This page is a work in progress</p>
   <% if user_signed_in? %>
-    <h1>User is logged in!</h1>
-    <%= link_to "Connect to Twitter", twitter_connect_path %>
-  <% else %>
-    <h1>User is logged out!</h1>
+    <%= link_to twitter_connect_path, class: "btn btn-primary margin-bottom twitter" do %>
+      <h3>Connect to Twitter</h3>
+    <% end %>
   <% end %>
+  <br>
+  <%= image_tag 'logo.svg', class:"home-logo" %>
 </div>

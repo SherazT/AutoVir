@@ -1,23 +1,15 @@
 class TwitterConnectionsController < ApplicationController
-  OAUTH_CONFIRM_URL = request.domain + "twitter-callback"
-
-  def create
-    request_token = client.request_token(:oauth_callback => OAUTH_CONFIRM_URL)
-  end
-
-  def callback
-    redirect_to root_url
-  end
-
-  def destroy
-  end
 
   private
 
-  def client
-    TwitterOAuth::Client.new(
-      :consumer_key => ENV["twitter_consumer_key"],
-      :consumer_key => ENV["twitter_consumer_secret"],
-    )
+  # Exchange your oauth_token and oauth_token_secret for an AccessToken instance.
+  def prepare_access_token(oauth_token, oauth_token_secret)
+    consumer = OAuth::Consumer.new(ENV["twitter_consumer_key"], ENV["twitter_consumer_secret"], { :site => "https://api.twitter.com", :scheme => :header })
+
+    # now create the access token object from passed values
+    token_hash = { :oauth_token => oauth_token, :oauth_token_secret => oauth_token_secret }
+    access_token = OAuth::AccessToken.from_hash(consumer, token_hash )
+
+    return access_token
   end
 end

@@ -35,7 +35,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'twitter_oauth'
+gem 'twitter'
+gem 'oauth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
