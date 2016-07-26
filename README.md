@@ -1,28 +1,8 @@
-== README
+== AutoVir
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Social media platform that not only learns to follow users likely to retweet a certain hashtag but also uses unsupervised learning to gather important information from an article to post concise tweets on its own. It's goal is to essentially replace a social media analyst. 
 
 * Ruby version
+* 2.3.0
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Clone repo and run /server.sh, the webpage will prompt for OAuth access to your Twitter account. Once that's complete enter your desired hashtags and AutoVir will do the rest of the magic!
